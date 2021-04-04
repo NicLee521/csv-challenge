@@ -44,6 +44,10 @@ stdout
 """
 def CreateNewCsv(csvList):
     combinded_csv = pd.concat(csvList) 
+    return combinded_csv
+    
+
+def PrintAndCreate(combinded_csv):
     combinded_csv.to_csv("combined.csv", index= False)
     combinded_csv.to_csv(sys.stdout, index = False) 
 
@@ -51,7 +55,7 @@ def main():
     arguments = GetArgs()
     CheckFiles(arguments)
     csvList = GetFiles(arguments)
-    CreateNewCsv(csvList)
+    PrintAndCreate(CreateNewCsv(csvList))
 
 
 if __name__== "__main__":
